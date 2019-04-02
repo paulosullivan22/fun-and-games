@@ -9,6 +9,7 @@ function handRotate(hand, angle) {
 }
 
 handRotate(hourHand, hourAngle);
+handRotate(minuteHand, hourAngle)
 
 // Method
 //
