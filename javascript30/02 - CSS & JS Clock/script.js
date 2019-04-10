@@ -1,20 +1,21 @@
-var d = new Date();
+const secondHand = document.querySelector('.second-hand');
+const minHand = document.querySelector('.min-hand');
+const hourHand = document.querySelector('.hour-hand');
 
-let hourAngle = d.getHours() * 15;
-let hourHand = document.getElementById('hour-hand');
+function setDate() {
+  const now = new Date();
+  
+  const seconds = now.getSeconds();
+  const secondsDegrees = ((seconds / 60) * 360) + 90;
+  secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
 
-function handRotate(hand, angle) {
-  console.log(angle)
-  hand.style.transform = `rotate(${angle}deg)`;
+  const minutes = now.getMinutes();
+  const minuteDegrees = ((minutes / 60) * 360) + 90;
+  minHand.style.transform = `rotate(${minuteDegrees}deg)`;
+
+  const hour = now.getHours();
+  const hourDegrees = ((hour / 60) * 360) + 90;
+  hourHand.style.transform = `rotate(${hourDegrees}deg)`;
 }
 
-handRotate(hourHand, hourAngle);
-handRotate(minuteHand, hourAngle)
-
-// Method
-//
-// Find the hour, mins and seconds
-//
-// Set each hand to the correct time
-//
-// set a timeout
+setInterval(setDate, 1000);
