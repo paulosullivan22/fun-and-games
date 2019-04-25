@@ -1,42 +1,14 @@
-let boulevards = [
-'Boulevards of Paris',
-'City walls of Paris',
-'Thiers wall',
-'Wall of Charles V',
-'Wall of Philip II Augustus',
-'City gates of Paris',
-'Haussmann\'s renovation of Paris',
-'Boulevards of the Marshals',
-'Boulevard Auguste-Blanqui',
-'Boulevard Barbès',
-'Boulevard Beaumarchais',
-'Boulevard de l\'Amiral-Bruix',
-'Boulevard Mortier',
-'Boulevard Poniatowski',
-'Boulevard des Capucines',
-'Boulevard de la Chapelle',
-'Boulevard de Clichy',
-'Boulevard du Crime',
-'Boulevard du Général-d\'Armée-Jean-Simon',
-'Boulevard Haussmann',
-'Boulevard de l\'Hôpital',
-'Boulevard des Italiens',
-'Boulevard Lefebvre',
-'Boulevard de la Madeleine',
-'Boulevard de Magenta',
-'Boulevard Montmartre',
-'Boulevard du Montparnasse',
-'Boulevard Raspail',
-'Boulevard Richard-Lenoir',
-'Boulevard de Rochechouart',
-'Boulevard Saint-Germain',
-'Boulevard Saint-Michel',
-'Boulevard de Sébastopol',
-'Boulevard de Strasbourg',
-'Boulevard du Temple',
-'Boulevard Voltaire',
-'Boulevard de la Zone'
-]
+const panels = document.querySelectorAll('.panel');
 
-let deBoulevards = boulevards.filter(val => val.includes('de'));
-console.log(deBoulevards);
+function toggleOpen() {
+  this.classList.toggle('open')
+}
+
+function toggleActive(e) {
+  if (e.propertyName.includes('flex')) {
+    this.classList.toggle('open-active');
+  }
+}
+
+panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
